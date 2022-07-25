@@ -1,0 +1,300 @@
+<div class="row" >
+	<div class="col-md-12">
+		<div class="row" *ngIf=addStaffs>
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h1 class="text-center">Add New Staff</h1>
+					</div>
+					<div class="panel-body" style="width: 50%; margin: 0 auto;">
+						<form  name="hotelForm" class="form-horizontal" (submit)="addStaff()">
+							<div class="row control-group required-asterisk" style="padding-top: 5px;">
+								<label class="col-md-5 control-label">StaffName</label>
+								<input type="text" class="col-md-4" [(ngModel)]="staffname" name="name"
+									placeholder="Hotel Name" required>
+							</div>
+							<div class="row control-group required-asterisk" style="padding-top: 5px;">
+								<label class="col-md-5 control-label">stream</label>
+								<input type="text" class="col-md-4" [(ngModel)]="stream" name="stream"
+									placeholder="Hotel Address" required>
+							</div>
+							<div class="row control-group required-asterisk" style="padding-top: 5px;">
+								<label class="col-md-5 control-label">doj</label>
+								<input type="text" class="col-md-4"[(ngModel)]="doj" name="doj"
+									placeholder="Zip code" required>
+							</div>
+							<div class="row control-group required-asterisk" style="padding-top: 5px;">
+								<label class="col-md-5 control-label">address</label>
+								<input type="text" class="col-md-4"[(ngModel)]="saddress" name="address"
+									placeholder="City" required>
+							</div>
+							<div class="row control-group required-asterisk" style="padding-top: 5px;">
+								<label class="col-md-5 control-label">designation</label>
+								<input type="text" class="col-md-4" [(ngModel)]="designation" name="designation"
+									placeholder="State" required>
+							</div>
+							<div class="row control-group required-asterisk" style="padding-top: 5px;">
+								<label class="col-md-5 control-label">staffid</label>
+								<input type="text" class="col-md-4" [(ngModel)]="staffid" name="staffid"
+									placeholder="staffid" required data-ng-pattern="/^[0-9]+$/">
+							</div>
+							<div class="row" style="padding-top: 5px;" align="center">
+								<button class="btn btn-primary" type="submit" value="Submit">Proceed</button>
+								<button class="btn btn-primary" (click)="setTrue()" type="button">cancel</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+   
+
+		<div class="row" >
+			<div class="col-md-11 mx-auto">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="text-center">Current Staffs</h3>
+					</div>
+					<div class="panel-body">
+						<div class="table-responsive" style="padding-top:5px;">
+							<table id="hotels" class="table table-striped table-bordered table-hover ">
+                                <!-- -->
+								<thead>
+									<tr>
+										<th>StaffName</th>
+										<th>stream</th>
+										<th>doj</th>
+										<th>address</th>
+                                        <th>designation</th>
+                                        <th>staffid</th>
+										
+									</tr>
+								</thead>
+								<tbody>
+									<tr *ngFor='let staff of staffs'>
+										<td>{{staff.staffname}}</td>
+										<td>{{staff.stream}}</td>
+										<td>{{staff.doj}}</td>
+										<td>{{staff.address}}</td>
+                                        <td>{{staff.designation}}</td>
+                                        <td>{{staff.staffid}}</td>
+                                       
+									<tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<button class="btn btn-primary" (click)="setTrue()">Add New Staff</button>
+				</div>
+			</div>
+		</div>
+		<hr> 
+
+
+        <div class="col-md-12">
+            <div class="row" *ngIf=addStudents>
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h1 class="text-center">Add New Student</h1>
+                        </div>
+                        <div class="panel-body" style="width: 50%; margin: 0 auto;">
+                            <form  name="hotelForm" class="form-horizontal" (submit)="addStudent()">
+                                <div class="row control-group required-asterisk" style="padding-top: 5px;">
+                                    <label class="col-md-5 control-label">Studentname</label>
+                                    <input type="text" class="col-md-4" [(ngModel)]="studentname" name="name"
+                                        placeholder="Hotel Name" required>
+                                </div>
+                                <div class="row control-group required-asterisk" style="padding-top: 5px;">
+                                    <label class="col-md-5 control-label">department</label>
+                                    <input type="text" class="col-md-4" [(ngModel)]="department" name="department"
+                                        placeholder="Hotel Address" required>
+                                </div>
+                                <div class="row control-group required-asterisk" style="padding-top: 5px;">
+                                    <label class="col-md-5 control-label">address</label>
+                                    <input type="text" class="col-md-4"[(ngModel)]="saddress" name="address"
+                                        placeholder="Zip code" required>
+                                </div>
+                                <div class="row control-group required-asterisk" style="padding-top: 5px;">
+                                    <label class="col-md-5 control-label">phoneno</label>
+                                    <input type="text" class="col-md-4"[(ngModel)]="phoneno" name="phoneno"
+                                        placeholder="City" required>
+                                </div>
+                                <div class="row control-group required-asterisk" style="padding-top: 5px;">
+                                    <label class="col-md-5 control-label">batch</label>
+                                    <input type="text" class="col-md-4" [(ngModel)]="batch" name="batch"
+                                        placeholder="State" required>
+                                </div>
+                                <div class="row control-group required-asterisk" style="padding-top: 5px;">
+                                    <label class="col-md-5 control-label">studentid</label>
+                                    <input type="text" class="col-md-4" [(ngModel)]="studentid" name="studentid"
+                                        placeholder="staffid" required data-ng-pattern="/^[0-9]+$/">
+                                </div>
+                                <div class="row" style="padding-top: 5px;" align="center">
+                                    <button class="btn btn-primary" type="submit" value="Submit">Proceed</button>
+                                    <button class="btn btn-primary" (click)="setTrue1()" type="button">cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row" ng-hide="addHotel">
+                <div class="col-md-12  mx-auto">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="text-center">Current Students</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive" style="padding-top:5px;">
+                                <table id="hotels" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>StudentName</th>
+                                            <th>department</th>
+                                            <th>address</th>
+                                            <th>phoneno</th>
+                                            <th>batch</th>
+                                            <th>studentid</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor='let student of students'>
+                                            <td>{{student.studentname}}</td>
+                                            <td>{{student.department}}</td>
+                                            <td>{{student.address}}</td>
+                                            <td>{{student.phoneno}}</td>
+                                            <td>{{student.batch}}</td>
+                                            <td>{{student.studentid}}</td>
+                                        <tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" (click)="setTrue1()">Add New Student</button>
+                    </div>
+                </div>
+            </div>
+            <hr> 
+
+            
+            <div class="row" ng-controller="AdminController">
+                <div class="col-md-12">
+                                <div class="row" *ngIf="updateDisplay">
+                        <div class="col-md-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h1 class="text-center">Update Users</h1>
+                                </div>
+                                <div class="panel-body" style="width: 50%; margin: 0 auto;">
+                                    <form  name="hotelForm" class="form-horizontal" (submit)="updateUser()">
+                                        <div class="row control-group required-asterisk" style="padding-top: 5px;">
+                                            <label class="col-md-5 control-label">Id</label>
+                                            <input type="text" class="col-md-4" [(ngModel)]="id" name="Id"
+                                                placeholder="Hotel Name" required>
+                                        </div>
+                                        <div class="row control-group required-asterisk" style="padding-top: 5px;">
+                                            <label class="col-md-5 control-label">Email</label>
+                                            <input type="text" class="col-md-4" [(ngModel)]="email" name="Email"
+                                                placeholder="Hotel Address" required>
+                                        </div>
+                                        <div class="row control-group required-asterisk" style="padding-top: 5px;">
+                                            <label class="col-md-5 control-label">Role</label>
+                                            <input type="text" class="col-md-4"[(ngModel)]="isadmin" name="isadmin"
+                                                placeholder="Zip code" required>
+                                        </div>
+                                        <div class="row control-group required-asterisk" style="padding-top: 5px;">
+                                            <label class="col-md-5 control-label">Status</label>
+                                            <input type="text" class="col-md-4"[(ngModel)]="status" name="status"
+                                                placeholder="City" required>
+                                        </div>
+                                        <div class="row" style="padding-top: 5px;" align="center">
+                                            <button class="btn btn-primary" type="submit" value="Submit">Proceed</button>
+                                            <button class="btn btn-primary" (click)="setUpdate()" type="button">cancel</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+    
+                    </div>
+            </div>
+    
+            <div class="row" ng-hide="addHotel">
+                <div class="col-md-12  mx-auto">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="text-center">Current Users</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive" style="padding-top:5px;">
+                                <table id="hotels" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Role</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+    
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor='let user of users'>
+                                            <td>{{user.id}}</td>
+                                            <td>{{user.name}}</td>
+                                            <td>{{user.email}} </td>
+                                            <td>{{user.isadmin}}</td>
+                                            <td>{{user.status}}</td>
+                                            <button class="btn btn-danger" style="margin-left: 45px;margin-top: 10px;text-align: center;" (click)="getUser(user.id)">Edit</button>
+                                            <button class="btn btn-danger" style="margin-left: 45px;margin-top: 10px;text-align: center;"(click)="deleteUser(user.id)" >Delete</button>
+                                        <tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- <button class="btn btn-primary" (click)="setTrue()">Add New Hotel</button> -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <div class="text-center" >
+                <button class="btn btn-danger mx-auto" style="text-align: center;"(click)="onLogoutClick()" >Sign Out</button>
+            </div>
+    
+		 <!-- <div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="text-center">Current Users</h3>
+					</div>
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table id="bookings" class="table table-striped table-bordered table-hover">
+								<thead>
+									<tr>
+										<th>Full Name</th>
+										<th>Email Address</th>
+										<th>Is Admin</th>
+										<th>action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr *ngFor="let user of users">
+										<td>{{user.firstname}} {{user.lastname}}</td>
+										<td>{{user.email}}</td>
+										<td>{{user.isAdmin}}</td>
+										<button class="btn btn-danger" style="margin-left: 45px;margin-top: 10px;text-align: center;" (click)="deleteUser(user._id)">Delete</button>
+                                    </tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> 
+  -->
